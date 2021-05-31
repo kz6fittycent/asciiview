@@ -1,0 +1,39 @@
+name: asciiview
+version: 'git'
+summary: Convert images into ASCII in your terminal
+description: |
+  It turns images into an ASCII art representation based on the shape of the characters
+  
+    **Install the snap**
+
+    sudo snap install asciiview
+    
+    **Run it**
+    
+    asciiview
+    
+    Use asciiview --help for usage info
+
+license: MIT
+
+base: core20
+grade: stable 
+confinement: strict
+
+apps:
+  asciiview:
+    command: python3 asciiview.py
+    environment:
+      LC_ALL: C.UTF-8
+
+parts: 
+  asciiview:
+    source: https://github.com/professorg/asciiview
+    source-type: git
+    plugin: python
+      
+    build-packages:
+      - python3
+      
+    stage-packages:
+      - python3
