@@ -14,26 +14,32 @@ description: |
     
     Use asciiview --help for usage info
 
-license: MIT
-
-base: core20
+base: core18
 grade: stable 
 confinement: strict
 
 apps:
   asciiview:
-    command: python3 bin/asciiview.py
+    command: python3 $SNAP/asciiview.py
     environment:
       LC_ALL: C.UTF-8
-
+    plugs:
+      - home
+      
 parts: 
   asciiview:
-    source: https://github.com/professorg/asciiview
+    source: https://github.com/kz6fittycent/asciiview
     source-type: git
-    plugin: python
+    plugin: nil
       
     build-packages:
       - python3
-      
+
     stage-packages:
       - python3
+      - python3-pil
+      - python3-numpy  
+          
+  publish:
+    plugin: dump
+    source: .      
