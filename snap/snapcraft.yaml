@@ -22,7 +22,7 @@ confinement: strict
 
 apps:
   asciiview:
-    command: python3 asciiview.py
+    command: python3 bin/asciiview.py
     environment:
       LC_ALL: C.UTF-8
 
